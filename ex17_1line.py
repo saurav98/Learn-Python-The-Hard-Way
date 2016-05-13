@@ -1,0 +1,1 @@
+from sys import argv;script,f,t=argv;x=open(f);y=x.read();w=open(t,'w');w.write(y)

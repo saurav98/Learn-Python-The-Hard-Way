@@ -1,0 +1,100 @@
+Learn python the hard way: Exercise 22
+What Do You Know So Far?
+
+ex00 The Setup
+cd, ls, mkdir.
+
+ex01 A good firsr program
+printing
+
+ex02 Comments and pound characters 
+comment/disable line
+
+ex03 Numbers and math
++ plus
+- minus
+/ slash
+* asterisk
+% percent
+< less- than
+> greater- than
+<= less- than- equal
+>= greater- than- equal
+ 
+ex04 Variables and Names
+Floating point : Number with decimals
+'_'underscores in variable names
+
+ex05 More Variables and printing
+%s : to put a value in the string.
+%  : provide the value after the string
+%d : for digits "Numbers"
+%r : for raw data (actually, "representation")
+
+ex06 Strings and text
+Addition of strings and text(not file)
+
+ex07 More printing 
+Multiplication of strings 
+
+ex08 Printing,Printing
+Boolean value (True, False)
+
+ex09 Printing, Printing, Printing
+\  : backslash, used to escape charaters
+\n : new line command
+""": triple quotes to set off several lines of text.
+
+ex10 What was that?
+use of \ in a string.
+
+ex11 Asking questions 
+raw_input() : to get typed input from user
+
+ex12 prompting people
+raw_input("prompt text:")
+pydoc shell command
+
+ex13 Parameters, Unpacking, Variables
+pass: sending info from arguments to variables
+import:
+argv: the argument variables
+module : the name for the collection of extra code
+(from sys import argv )type command
+
+ex14 Prompting and passing
+print "Where do you live %s?"% user_name
+lives = raw_input(--->)
+
+ex15 Reading files
+dot operators
+open(file_name)
+.read
+.close
+
+ex16 Reading and Writing Files
+w : write mode(deletes everything then writes)
+r : read
+w+: write and read
+r+: read and write
+.truncate : delete content of file
+; semicolon can separate commands on a line
+len() : command that returns lenght of the string
+pydoc import: for info on importing
+
+ex17 More Files
+os.path
+exists : func that tells us file exists or not by giving boolean value
+
+ex19 Names, Variables, Code, Functions
+def
+(*args)
+4 space indentation in 'def'
+
+ex20 Functions and variables
+.seek(0) goes to the beginning
+.readline
++=
+
+ex21 Functions Can Return
+return
