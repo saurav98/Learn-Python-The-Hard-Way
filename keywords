@@ -1,0 +1,305 @@
+del:
+    >>> a = [-1, 1, 66.25, 333, 333, 1234.5]
+    >>> del a[0]
+    >>> a
+    [1, 66.25, 333, 333, 1234.5]
+    >>> del a[2:4]
+    >>> a
+    [1, 66.25, 1234.5]
+    >>> del a[:]
+    >>> a
+    []
+    del can also be used to delete entire varibles:>>> del a
+	
+====	
+	
+as:
+
+with open("myfile.txt") as f:
+    text = f.read()
+
+try:
+    f = open("foo")
+except IOError as exc:
+    # Now you can access the Exception for more detailed analysis
+	
+====
+
+global:
+
+def bob():
+    me = "locally defined"    # Defined only in local context
+    print me
+
+bob()
+print me     # Asking for a global variable
+
+The above will give you:
+locally defined
+Traceback (most recent call last):
+  File "file.py", line 9, in <module>
+    print me
+NameError: name 'me' is not defined.
+
+def bob():
+    global me
+	me = "locally defined"
+	print me
+
+bob()
+print me
+
+the above line wil give you 
+locally defined
+locally defined
+
+====
+
+with:
+with open('/etc/passwd', 'r') as f:
+    print f.readlines()
+
+print "file is now closed!"
+
+#file will be closed automatically
+====
+
+assert:
+>>> number = input('Enter a positive number:')
+Enter a positive number:-1
+>>> assert (number > 0), 'Only positive numbers are allowed!'
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AssertionError: Only positive numbers are allowed!
+>>> 
+
+====
+
+pass
+
+====
+
+Genrators:
+>>> mygenerator = (x*x for x in range(3))
+>>> for i in mygenerator:
+...    print(i)
+0
+1
+4
+
+====
+
+Yield:
+It is a keyword that is used like return, except the function will return a generator.
+
+>>> def createGenerator():
+...    mylist = range(3)
+...    for i in mylist:
+...        yield i*i
+...
+>>> mygenerator = createGenerator() # create a generator
+>>> print(mygenerator) # mygenerator is an object!
+<generator object createGenerator at 0xb7555c34>
+>>> for i in mygenerator:
+...     print(i)
+0
+1
+4
+
+
+====
+
+break:
+#!/usr/bin/python
+
+for letter in 'Python':     # First Example
+   if letter == 'h':
+      break
+   print 'Current Letter :', letter
+  
+var = 10                    # Second Example
+while var > 0:              
+   print 'Current variable value :', var
+   var = var -1
+   if var == 5:
+      break
+
+print "Good bye!"
+
+the above will produce.
+Current Letter : P
+Current Letter : y
+Current Letter : t
+Current variable value : 10
+Current variable value : 9
+Current variable value : 8
+Current variable value : 7
+Current variable value : 6
+Good bye!
+
+====
+
+continue:
+
+#!/usr/bin/python
+
+for letter in 'Python':     # First Example
+   if letter == 'h':
+      continue
+   print 'Current Letter :', letter
+
+var = 10                    # Second Example
+while var > 0:              
+   var = var -1
+   if var == 5:
+      continue
+   print 'Current variable value :', var
+print "Good bye!"
+
+Current Letter : P
+Current Letter : y
+Current Letter : t
+Current Letter : o
+Current Letter : n
+Current variable value : 10
+Current variable value : 9
+Current variable value : 8
+Current variable value : 7
+Current variable value : 6
+Current variable value : 4
+Current variable value : 3
+Current variable value : 2
+Current variable value : 1
+Good bye!
+
+====
+
+update:
+#!/usr/bin/python
+
+dict = {'Name': 'Zara', 'Age': 7}
+dict2 = {'Sex': 'female' }
+
+dict.update(dict2)
+print "Value : %s" %  dict
+
+when you run above program
+
+Value : {'Age': 7, 'Name': 'Zara', 'Sex': 'female'}
+
+====
+
+except:
+
+====
+
+class:
+
+====
+
+exec(), eval(), compile()
+
+====
+
+raise:
+
+if something:
+    raise Exception('My error!')
+	
+OR
+
+try:
+  generate_exception()
+except SomeException, e:
+  if not can_handle(e):
+    raise
+  handle_exception(e)
+  
+====
+
+finally:
+
+try:
+    run_code1()
+except TypeError:
+    run_code2()
+    return None   # The finally block is run before the method returns
+finally:
+    other_code()
+	
+Compare to this:
+
+try:
+    run_code1()
+except TypeError:
+    run_code2()
+    return None   
+
+other_code()  # This doesn't get run if there's an exception.
+
+====
+
+lambda:
+
+====
+
+map:
+
+r = map(func, seq)
+example:-
+def fahrenheit(T):
+    return ((float(9)/5)*T + 32)
+def celsius(T):
+    return (float(5)/9)*(T-32)
+temp = (36.5, 37, 37.5,39)
+
+F = map(fahrenheit, temp)
+C = map(celsius, F)
+
+
+====
+
+filter:
+>>> fib = [0,1,1,2,3,5,8,13,21,34,55]
+>>> result = filter(lambda x: x % 2, fib)
+>>> print result
+[1, 1, 3, 5, 13, 21, 55]
+>>> result = filter(lambda x: x % 2 == 0, fib)
+>>> print result
+[0, 2, 8, 34]
+>>> 
+
+====
+
+reduce:
+>>> reduce(lambda x,y: x+y, [47,11,42,13])
+113
+
+====
+
+random:
+
+>>> import random
+>>> random.seed(9001)
+>>> random.randint(1, 10)
+1
+>>> random.randint(1, 10)
+3
+>>> random.randint(1, 10)
+6
+>>> random.randint(1, 10)
+6
+>>> random.randint(1, 10)
+7
+
+====
+find:
+not sure wether it is there in python 2.x
+
+1string = 'Hi there' # True example
+2# string = 'Good bye' # False example
+3if string.find('Hi') != -1:
+4    print 'Success!'
+
+====
+
