@@ -1,12 +1,6 @@
 import sys
 import random
 
-life = 10
-
-class Engine(object):
-    opening_level = level1
-    
-
 class Level(object):
     def __init__(self, life):
         self.life = life
@@ -31,14 +25,19 @@ class Level(object):
             result = "fail"
             
         print "You have %s" %result
-    return result
+     
 class Level1(Level):
     pass
-class level2(Level):
+class Level2(Level):
     pass
 
-class Map(object):
-    if Level1 == "qualified":
-        pass
+class Play(object):
+    def __init__(self):
+        Level1(3)
+        if result == "qualifed":
+            print "Hi"
+            Level2(5)
+        else:
+            print "your game is over"
     
-    
+Play()
