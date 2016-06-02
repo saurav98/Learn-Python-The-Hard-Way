@@ -1,13 +1,16 @@
 import sys
 import random
 
+class EvilLife(object):
+    def life(self):
+        return 10
 
 class Level(object):
-    def life():
-        global life
-        life = 10
+    
     
     def __init__(self):
+        foo = EvilLife()
+        life = foo.life()
         for i in range (5):
             player = raw_input("> ")
             evil = random.randint(0, 5)
@@ -16,27 +19,23 @@ class Level(object):
                 pass
             elif evil == player:
                 life = life - 3
-            elif (evil = life + 1 )or (evil = life - 1):
+            elif (evil == life + 1 )or (evil == life - 1):
                 life = life - 1
             else:
                 pass
         if life <= 0:
-            "qualifed"
+            result = "qualifed"
         else:
-            "fail"
+            result = "fail"
             
-                
+        print result
 class Level1(Level):
     pass
     
 class level2(Level):
-    def life():
-        global life
-        life = 15
-            
-class level3(Level)
-    def life():
-        global life
-        life = 20
+    pass
+
+class Map(object):
+    
     
     
