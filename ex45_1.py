@@ -1,16 +1,16 @@
 import sys
 import random
 
-class EvilLife(object):
-    def life(self):
-        return 10
+life = 10
+
+class Engine(object):
+    opening_level = level1
+    
 
 class Level(object):
-    
-    
-    def __init__(self):
-        foo = EvilLife()
-        life = foo.life()
+    def __init__(self, life):
+        self.life = life
+        
         for i in range (5):
             player = raw_input("> ")
             evil = random.randint(0, 5)
@@ -24,18 +24,21 @@ class Level(object):
             else:
                 pass
         if life <= 0:
+            global result 
             result = "qualifed"
         else:
+            global result
             result = "fail"
             
-        print result
+        print "You have %s" %result
+    return result
 class Level1(Level):
     pass
-    
 class level2(Level):
     pass
 
 class Map(object):
-    
+    if Level1 == "qualified":
+        pass
     
     
