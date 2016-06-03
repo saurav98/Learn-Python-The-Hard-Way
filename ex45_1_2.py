@@ -2,20 +2,24 @@ import sys
 import random
 
 class Level(object):
-    def __init__(self, life):
-        self.life = life
-        for i in range (5):
+    def __init__(self, evil_life):
+        self.evil_life = evil_life
+        i = 5
+        while i > 0 and evil_life > 0:
             player = raw_input("> ")
             evil = random.randint(0, 5)
             
-            if life <= 0:
-                pass
+            if evil_life <= 0:
+                i -= 1
             elif evil == player:
-                life = life - 3
-            elif (evil == life + 1 )or (evil == life - 1):
-                life = life - 1
-            elif player == quit:
-                pass
+                evil_life = evil_life - 3
+                i -= 1
+            elif (evil == evil_life + 1 )or (evil == evil_life - 1):
+                evil_life = evil_life - 1
+                i -= 1
+            elif player == "quit":
+                sau = AddOns()
+                sau.quit()
             elif player == "rules" :
                 sau = AddOns()
                 sau.rules()
@@ -26,9 +30,8 @@ class Level(object):
                 sau = AddOns()
                 sau.status()
             else:
-                print "Learn to type a number." 
-                life = life - 1
-        if life <= 0:
+                i -= 1
+        if evil_life <= 0:
             global result 
             result = "qualifed"
         else:
@@ -43,22 +46,6 @@ class Level1(Level):
 
 class Level2(Level):
     pass
-
-
-class Play(object):
-    def __init__(self):
-        global level
-        level = 1
-        Level1(3)
-        if result == "qualifed":
-            global level
-            level = 2
-            print "You have qualified for level2"
-            Level2(5)
-        else:
-            sau = AddOns()
-            sau.exit()
-            
 
 class AddOns(object):
     
@@ -84,8 +71,22 @@ class AddOns(object):
     
     def status(self):
         print "You have %r life left" %life_left
-        kan = Play()
-        print "You are in level %r." %level
+        print "You are in level %r" %level      
+        
+class Play(object):
+    def __init__(self):
+        global level
+        level = 1
+        Level1(3)
+        if result == "qualifed":
+            global level
+            level = 2
+            print "You have qualified for level2"
+            Level2(5)
+        else:
+            sau = AddOns()
+            sau.exit()
+            
         
     
 life_left = 3    
