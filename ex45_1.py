@@ -1,52 +1,57 @@
 import sys
 import random
 
+class Engine(object):
+    def __init__(self, opening_level):
+        self.opening_level = opening_level
+        
+    def play(self):
+        opening_level
+
 class Level(object):
-    def __init__(self, life):
-        self.life = life
-        for i in range (5):
+    def __init__(self, evil_life):
+        self.evil_life = evil_life
+        i = 5
+        while i > 0 and evil_life > 0:
             player = raw_input("> ")
             evil = random.randint(0, 5)
-            
-            if life <= 0:
-                pass
+            if evil_life <= 0:
+                i -= 1
             elif evil == player:
-                life = life - 3
-            elif (evil == life + 1 )or (evil == life - 1):
-                life = life - 1
+                evil_life = evil_life - 3
+                i -= 1
+            elif (evil == evil_life + 1 )or (evil == evil_life - 1):
+                evil_life = evil_life - 1
+                i -= 1
+            elif player == "quit":
+                sau = AddOns()
+                sau.quit()
+            elif player == "rules" :
+                sau = AddOns()
+                sau.rules()
+            elif player == "life":
+                sau = AddOns()
+                sau.life()
+            elif player == "status":
+                sau = AddOns()
+                sau.status()
             else:
-                pass
-        if life <= 0:
+                i -= 1
+        if evil_life <= 0:
             global result 
             result = "qualifed"
         else:
             global result
-            result = "fail"
-        print "You have %s" %result
-     
-class Level1(Level):
-    pass
-
-class Level2(Level):
-    pass
-
-class Play(object):
-    def __init__(self):
-        Level1(3)
-        if result == "qualifed":
-            print "You have qualified for level2"
-            Level2(5)
-        else:
-            sau = AddOns()
-            sau.exit()
-            
+            result = "failed"
+    return result
 class AddOns(object):
-    def exit():
+    
+    def exit(self):
         exit_msg = ["You're trying to say you like DOS better than me, right?",
                     "Ya know, next time you come in here I'm gonna toast ya."]
         print random.choice(exit_msg)          
                     
-    def quit():
+    def quit(self):
         quit_msg = [
                     "Please don't leave, there's more demons to toast!",
                     "Don't leave yet -- There's a demon around that corner!",
@@ -55,11 +60,39 @@ class AddOns(object):
                     "You're lucky I don't smack you for thinking about leaving."]
         print random.choice(quit_msg)             
                     
-    def life():
-        pass
-    def rules():
-        pass
-    def score():
-        pass
+    def life(self):
+        print "You have %r life left" %life_left
     
-Play()
+    def rules(self):
+        print "This is games rules."
+    
+    def status(self):
+        print "You have %r life left" %life_left
+        print "You are in level %r" %level      
+
+class Level1(Level):
+    pass
+
+class Level2(Level):
+    pass
+
+class Map(object):
+    
+    
+    def __init__(self, opening_level):
+        self.opening_level = opening_level
+        
+    def previous_level(self):
+        eval("Level" + level + (3))
+        
+    def next_level(self):
+        if previous_level == "qualified":
+            eval("Level" + (level+1) + (3))
+        else:
+            sau = AddOns()
+            sau.exit()
+            
+a_map = Map(Level1)
+a_game = Engine(a_map)
+
+a_game.play()
