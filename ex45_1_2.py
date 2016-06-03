@@ -74,13 +74,13 @@ class AddOns(object):
         print random.choice(quit_msg)             
                     
     def life(self):
-        print life_left
+        print "You have %r life left" %life_left
     
     def rules(self):
         print "This is games rules."
     
     def status(self):
-        print life_left
+        print "You have %r life left" %life_left
         kan = Play()
         print "You are in level %r." %level
         
