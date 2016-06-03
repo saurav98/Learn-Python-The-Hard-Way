@@ -25,6 +25,9 @@ class Level(object):
             elif player == "status":
                 sau = AddOns()
                 sau.status()
+            else:
+                print "Learn to type a number." 
+                life = life - 1
         if life <= 0:
             global result 
             result = "qualifed"
