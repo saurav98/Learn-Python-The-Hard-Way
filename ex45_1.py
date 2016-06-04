@@ -4,9 +4,14 @@ import random
 class Engine(object):
     def __init__(self, opening_level):
         self.opening_level = opening_level
-        
-    def play(self):
-        opening_level
+
+    def play(self, opening_level):
+        global life_left
+        life_left = 3
+        while life_left > 0:
+            self.opening_level = opening_level
+            opening_level
+            life_left -= 1
 
 class Level(object):
     def __init__(self, evil_life):
@@ -43,7 +48,7 @@ class Level(object):
         else:
             global result
             result = "failed"
-    return result
+    
 class AddOns(object):
     
     def exit(self):
@@ -71,28 +76,27 @@ class AddOns(object):
         print "You are in level %r" %level      
 
 class Level1(Level):
-    pass
+    global level
+    level = 1
 
 class Level2(Level):
-    pass
+    global level
+    level = 2
 
 class Map(object):
-    
+    run_level = level + 1
     
     def __init__(self, opening_level):
         self.opening_level = opening_level
-        
-    def previous_level(self):
-        eval("Level" + level + (3))
-        
+
     def next_level(self):
-        if previous_level == "qualified":
+        if run_level == "qualified":
             eval("Level" + (level+1) + (3))
         else:
             sau = AddOns()
             sau.exit()
-            
-a_map = Map(Level1)
+
+a_map = Map(Level1(3))
 a_game = Engine(a_map)
 
-a_game.play()
+a_game.play(a_map)
