@@ -9,8 +9,8 @@ class Engine(object):
         global life_left
         life_left = 3
         while life_left > 0:
-            self.opening_level = opening_level
             opening_level
+            next_level()
             life_left -= 1
 
 class Level(object):
