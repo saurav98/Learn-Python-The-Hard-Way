@@ -1,16 +1,21 @@
 import sys
 import random
 
+global life_left
+global run_level
+global level_left
+
 class Engine(object):
-    def __init__(self, opening_level):
-        self.opening_level = opening_level
+    def __init__(self, level_map):
+        self.level_map = level_map
+        level_map
 
     def play(self, opening_level):
         global life_left
         life_left = 3
         while life_left > 0:
-            self.opening_level
-            self.opening_level.next_level()
+            self.level_map
+            self.level_map.next_level()
             life_left -= 1
 
 
