@@ -13,6 +13,7 @@ class Engine(object):
             self.opening_level.next_level()
             life_left -= 1
 
+
 class Level(object):
     def __init__(self, evil_life):
         self.evil_life = evil_life
@@ -48,6 +49,7 @@ class Level(object):
         else:
             global result
             result = "failed"
+
     
 class AddOns(object):
     
@@ -73,17 +75,21 @@ class AddOns(object):
     
     def status(self):
         print "You have %r life left" %life_left
-        print "You are in level %r" %level      
+        print "You are in level %r" %level     
+ 
 
 class Level1(Level):
     global level
     level = 1
 
+
 class Level2(Level):
     global level
     level = 2
 
+
 class Map(object):
+    global run_level
     run_level = level + 1
     
     def __init__(self, opening_level):
@@ -96,7 +102,7 @@ class Map(object):
             sau = AddOns()
             sau.exit()
 
+
 a_map = Map(Level1(3))
 a_game = Engine(a_map)
-
 a_game.play(a_map)
